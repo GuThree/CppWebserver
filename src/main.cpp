@@ -3,12 +3,11 @@
 
 using namespace std;
 
-const int port = 9999;
+const int port = 10022;
 
 int main(int argc, char *argv[])
 {
-    int threadNum = 5;
     HttpServer httpServer(port);
-    httpServer.run(threadNum);
+    httpServer.run(16, 5000);
     return 0;
 }

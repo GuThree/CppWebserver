@@ -10,8 +10,6 @@
 
 TimerManager HttpServer::timerManager;
 
-#define BUFFERSIZE 2048
-
 int setNonblocking(int fd) {                    //将文件描述符设置为不可阻塞的状态
     int old_option = fcntl(fd, F_GETFL);        //获得原有的描述符状态标记
     int new_option = old_option | O_NONBLOCK;   //设置非阻塞操作位，这样子客户端接上套接字时才能进行写操作。

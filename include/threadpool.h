@@ -24,8 +24,8 @@ const int MAX_THREAD_SIZE = 1024;   // 线程数上限
 const int MAX_QUEUE_SIZE = 10000;   // 最大队上限
 
 struct ThreadTask {                                     // 线程任务结构体
-    std::function<void(std::shared_ptr<void>)> process; // 封装一个函数对象，作为所需执行任务的指代
-    std::shared_ptr<void> arg;                          // 这里是任务的参数
+    std::function<void(std::shared_ptr<void>)> process; // 封装一个函数对象，作为所需执行任务的指代，封装的函数指针
+    std::shared_ptr<void> arg;                          // 这里是任务的参数，无类型智能指针
 };
 
 /*线程池的封装*/

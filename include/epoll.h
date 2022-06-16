@@ -33,13 +33,9 @@ public:
 
     static std::vector<std::shared_ptr<HttpData> > poll(const ServerSocket &serverSocket, int max_event, int timeout);  //轮询
 
-//    static void handleConnection(ServerSocket &serverSocket);
-
 public:
     static std::unordered_map<int, std::shared_ptr<HttpData> > httpDataMap;         //一个fd对应一个httpdata
     static epoll_event *events;
-//    static TimerManager timerManager;
-
     const static __uint32_t DEFAULT_EVENTS = (EPOLLIN | EPOLLET | EPOLLONESHOT);    //默认事件
 };
 

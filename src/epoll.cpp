@@ -19,11 +19,11 @@ int Epoll::init(int max_events) {
 }
 
 int Epoll::addFd(int epoll_fd, int fd, __uint32_t events, std::shared_ptr<HttpData> httpData) {
-    epoll_event event;  // 初始化epoll_event
-    event.events = events;  // 设置该event的监听事件列表
-    event.data.fd = fd; // 并且把携带的数据设置为用户描述符
-    httpDataMap[fd] = httpData; // 在httpDataMap中设置该文件描述符的数据
-    int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd, &event); // 往epoll中添加该文件描述符对应的事件
+    epoll_event event;              // 初始化epoll_event
+    event.events = events;          // 设置该event的监听事件列表
+    event.data.fd = fd;             // 并且把携带的数据设置为用户描述符
+    httpDataMap[fd] = httpData;     // 在httpDataMap中设置该文件描述符的数据
+    int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd, &event);     // 往epoll中添加该文件描述符对应的事件
 
     if (ret < 0) {  //
         std::cout << "epoll add error" << std::endl;
@@ -40,7 +40,7 @@ int Epoll::modFd(int epoll_fd, int fd, __uint32_t events, std::shared_ptr<HttpDa
     event.data.fd = fd;
 
     httpDataMap[fd] = httpData;
-    int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_MOD, fd, &event); // 和addFd相比只有这一行的参数2改变了
+    int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_MOD, fd, &event);     // 和addFd相比只有这一行的参数2改变了
 
     if (ret < 0) {
         std::cout << "epoll mod error" << std::endl;
@@ -83,7 +83,7 @@ std::vector<std::shared_ptr<HttpData>> Epoll::poll(const ServerSocket &serverSoc
     for (int i = 0; i < event_num; i++) {
         int fd = events[i].data.fd;
 
-        if (fd == serverSocket.m_listenfd) { // 如果是监听端口有事件要处理，那必然是有新的链接请求，当场处理
+        if (fd == serverSocket.m_listenfd) {    // 如果是监听端口有事件要处理，那必然是有新的链接请求，当场处理
             HttpServer::handleConnection(const_cast<ServerSocket &>(serverSocket));
         } else {
 

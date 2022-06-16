@@ -27,10 +27,7 @@ threadpool::threadpool(int thread_s, int max_queue_s) : thread_size(thread_s), m
     }
 }
 
-threadpool::~threadpool()
-{
-    shutdown();
-}
+threadpool::~threadpool() {}
 
 bool threadpool::addjob(std::shared_ptr<void> arg, std::function<void (std::shared_ptr<void>)> fun)
 {

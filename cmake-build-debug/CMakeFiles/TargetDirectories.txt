@@ -1,1 +1,3 @@
-/home/gsr/Documents/cwebserver/cmake-build-debug/CMakeFiles/cwebserver.dir
+/home/Document/projects/cwebserver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/Document/projects/cwebserver/cmake-build-debug/CMakeFiles/cwebserver.dir
+/home/Document/projects/cwebserver/cmake-build-debug/CMakeFiles/edit_cache.dir

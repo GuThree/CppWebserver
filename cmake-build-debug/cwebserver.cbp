@@ -1,119 +1,162 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CodeBlocks_project_file>
-   <FileVersion major="1" minor="6" />
-   <Project>
-      <Option title="cwebserver" />
-      <Option makefile_is_custom="1" />
-      <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;" />
-      <Build>
-      <Target title="all">
-         <Option working_dir="/home/gsr/Documents/cwebserver/cmake-build-debug" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 all" />
-            <CompileFile command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="cwebserver">
-         <Option output="/home/gsr/Documents/cwebserver/cmake-build-debug/cwebserver" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/gsr/Documents/cwebserver/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="1" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/usr/include" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include" />
-            <Add directory="/usr/local/include" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 cwebserver" />
-            <CompileFile command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="cwebserver/fast">
-         <Option output="/home/gsr/Documents/cwebserver/cmake-build-debug/cwebserver" prefix_auto="0" extension_auto="0" />
-         <Option working_dir="/home/gsr/Documents/cwebserver/cmake-build-debug" />
-         <Option object_output="./" />
-         <Option type="1" />
-         <Option compiler="gcc" />
-         <Compiler>
-            <Add directory="/usr/include" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux" />
-            <Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include" />
-            <Add directory="/usr/local/include" />
-         </Compiler>
-         <MakeCommands>
-            <Build command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 cwebserver/fast" />
-            <CompileFile command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      <Target title="rebuild_cache">
-         <Option working_dir="/home/gsr/Documents/cwebserver/cmake-build-debug" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache" />
-            <CompileFile command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/gmake -f &quot;/home/gsr/Documents/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
-      </Build>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/epoll.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/http_data.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/http_parse.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/http_request.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/http_response.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/lock.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/main.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/server.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/socket.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/threadpool.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/src/timer.cpp">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/epoll.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/http_data.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/http_parse.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/http_request.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/http_response.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/lock.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/server.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/socket.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/threadpool.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/include/timer.h">
-      </Unit>
-      <Unit filename="/home/gsr/Documents/cwebserver/CMakeLists.txt">
-          <Option virtualFolder="CMake Files\" />
-      </Unit>
-   </Project>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cwebserver"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/Document/projects/cwebserver/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/Document/projects/cwebserver/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cwebserver">
+				<Option output="/home/Document/projects/cwebserver/cmake-build-debug/cwebserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Document/projects/cwebserver/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 cwebserver"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cwebserver/fast">
+				<Option output="/home/Document/projects/cwebserver/cmake-build-debug/cwebserver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Document/projects/cwebserver/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/../../../../include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 cwebserver/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/Document/projects/cwebserver/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/Document/projects/cwebserver/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/Document/projects/cwebserver/include/epoll.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/http_data.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/http_parse.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/http_request.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/http_response.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/lock.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/logger.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/server.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/socket.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/threadpool.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/timer.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/include/utility.h">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/epoll.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/http_data.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/http_parse.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/http_request.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/http_response.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/lock.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/logger.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/main.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/server.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/socket.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/threadpool.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/timer.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/src/utility.cpp">
+			<Option target="cwebserver"/>
+		</Unit>
+		<Unit filename="/home/Document/projects/cwebserver/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
 </CodeBlocks_project_file>

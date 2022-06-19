@@ -4,6 +4,8 @@
 
 
 #include "../include/epoll.h"
+#include "../include/logger.h"
+
 
 epoll_event *Epoll::events;
 std::unordered_map<int, std::shared_ptr<HttpData> > Epoll::httpDataMap;
@@ -11,7 +13,8 @@ std::unordered_map<int, std::shared_ptr<HttpData> > Epoll::httpDataMap;
 int Epoll::init(int max_events) {
     int epoll_fd = ::epoll_create(max_events);
     if (epoll_fd == -1) {
-        std::cout << "epoll create error" << std::endl;
+        LogFile::writeInfo("epoll create error\n");
+//        std::cout << "epoll create error" << std::endl;
         exit(-1);
     }
     events = new epoll_event[max_events];   // 为epoll创建用户态下用于接受内核态的epoll_event事件的缓存
@@ -26,7 +29,8 @@ int Epoll::addFd(int epoll_fd, int fd, __uint32_t events, std::shared_ptr<HttpDa
     int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd, &event);     // 往epoll中添加该文件描述符对应的事件
 
     if (ret < 0) {  //
-        std::cout << "epoll add error" << std::endl;
+        LogFile::writeInfo("epoll add error\n");
+//        std::cout << "epoll add error" << std::endl;
         httpDataMap[fd].reset();
         return -1;
     }
@@ -43,7 +47,8 @@ int Epoll::modFd(int epoll_fd, int fd, __uint32_t events, std::shared_ptr<HttpDa
     int ret = ::epoll_ctl(epoll_fd, EPOLL_CTL_MOD, fd, &event);     // 和addFd相比只有这一行的参数2改变了
 
     if (ret < 0) {
-        std::cout << "epoll mod error" << std::endl;
+        LogFile::writeInfo("epoll mod error\n");
+//        std::cout << "epoll mod error" << std::endl;
         httpDataMap[fd].reset();
         return -1;
     }
@@ -56,7 +61,8 @@ int Epoll::delFd(int epoll_fd, int fd) {
 
     int ret = epoll_ctl(epoll_fd, EPOLL_CTL_DEL, fd, nullptr);   // 删除文件描述符指定的事件监听
     if (ret < 0) {
-        std::cout << "epoll del error" << std::endl;
+        LogFile::writeInfo("epoll del error\n");
+//        std::cout << "epoll del error" << std::endl;
         return -1;
     }
     // epoll里删完了还不算，要在httpDataMap里面一块删除了才可以
@@ -69,12 +75,12 @@ int Epoll::delFd(int epoll_fd, int fd) {
 
 // 轮询
 std::vector<std::shared_ptr<HttpData>> Epoll::poll(const ServerSocket &serverSocket, int max_event, int timeout) {
-    std::cout << "epoll_waiting......\n";
+    LogFile::writeInfo("epoll_waiting......\n");
+//    std::cout << "epoll_waiting......\n";
     int event_num = epoll_wait(serverSocket.epoll_fd, events, max_event, timeout);      // 接受需要处理的事件，返回值为需要处理的事件数目
     if (event_num < 0) {
-        std::cout << "epoll_num=" << event_num << std::endl;
-        std::cout << "epoll_wait error" << std::endl;
-        std::cout << errno << std::endl;
+        LogFile::writeInfo("epoll_wait error\n");
+//        std::cout << "epoll_wait error" << std::endl;
         exit(-1);
     }
 
@@ -105,7 +111,8 @@ std::vector<std::shared_ptr<HttpData>> Epoll::poll(const ServerSocket &serverSoc
                     httpDataMap.erase(it);
                 }
             } else {
-                std::cout << "长连接第二次连接未找到" << std::endl;
+                LogFile::writeInfo("长连接第二次连接未找到\n");
+//                std::cout << "长连接第二次连接未找到" << std::endl;
                 close(fd);
                 continue;
             }

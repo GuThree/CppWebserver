@@ -3,6 +3,7 @@
 //
 
 #include "../include/http_parse.h"
+#include "../include/logger.h"
 
 int HttpRequestParser::get_line(int fd, char *buffer, int size){
     int count = 0;
@@ -25,7 +26,7 @@ int HttpRequestParser::get_line(int fd, char *buffer, int size){
             count++;
 
         } else if( len == -1 ){//读取出错
-            perror("read failed");
+//            perror("read failed");
             count = -1;
             break;
         } else {// read 返回0,客户端关闭sock 连接.
@@ -128,7 +129,7 @@ HttpRequestParser::HTTP_CODE HttpRequestParser::parse_requestline(int client_fd,
 
         return NO_REQUEST;//继续解析
     } else{
-        std::cout << client_fd <<" recv had no comment\n";
+//        std::cout << client_fd <<" recv had no comment\n";
         return BAD_REQUEST;
     }
 }
@@ -201,11 +202,13 @@ HttpRequestParser::HTTP_CODE HttpRequestParser::parse_body(int client_fd, HttpRe
 
 HttpRequestParser::HTTP_CODE HttpRequestParser::parse_content(int client_fd, HttpRequest &request){
     if (HttpRequestParser::parse_requestline(client_fd, request) == BAD_REQUEST){
-        std::cout << "parse_requestline BAD_REQUEST\n";
+        LogFile::writeInfo("parse_requestline BAD_REQUEST\n");
+//        std::cout << "parse_requestline BAD_REQUEST\n";
         return BAD_REQUEST;
     }
     if (HttpRequestParser::parse_headers(client_fd, request) == BAD_REQUEST){
-        std::cout << "parse_headers BAD_REQUEST\n";
+        LogFile::writeInfo("parse_headers BAD_REQUEST\n");
+//        std::cout << "parse_headers BAD_REQUEST\n";
         return BAD_REQUEST;
     } else if (HttpRequestParser::parse_headers(client_fd, request) == FINISH_REQUEST){
         return FINISH_REQUEST;

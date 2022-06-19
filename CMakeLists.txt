@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 add_executable(cwebserver src/main.cpp
+        src/utility.cpp include/utility.h
         src/lock.cpp include/lock.h
+        src/logger.cpp include/logger.h
         src/threadpool.cpp include/threadpool.h
         src/socket.cpp include/socket.h
         src/http_request.cpp include/http_request.h

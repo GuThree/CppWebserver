@@ -3,6 +3,7 @@
 //
 
 #include "../include/threadpool.h"
+#include "../include/logger.h"
 
 /*线程池的创建*/
 threadpool::threadpool(int thread_s, int max_queue_s) : thread_size(thread_s), max_queue_size(max_queue_s), condition_(mutex_) {
@@ -16,9 +17,9 @@ threadpool::threadpool(int thread_s, int max_queue_s) : thread_size(thread_s), m
     threads.resize(thread_size);
 
     for(int i=0; i < thread_size; i++) {
-        std::cout << "Create the pthread:" << i << std::endl;
         if(pthread_create(&threads[i], NULL, worker, this) != 0) {
-            std::cout << "ThreadPool init error" << std::endl;
+            LogFile::writeInfo("ThreadPool init error\n");
+//            std::cout << "ThreadPool init error" << std::endl;
             throw std::exception();
         }
         if(pthread_detach(threads[i])) {    //将线程分离
@@ -32,7 +33,8 @@ threadpool::~threadpool() {}
 bool threadpool::addjob(std::shared_ptr<void> arg, std::function<void (std::shared_ptr<void>)> fun)
 {
     if (m_stop) {    // 如果已经关闭线程池
-        std::cout << "ThreadPool has shutdown" << std::endl;
+        LogFile::writeInfo("ThreadPool has shutdown\n");
+//        std::cout << "ThreadPool has shutdown" << std::endl;
         return false;
     }
 
@@ -56,11 +58,13 @@ bool threadpool::addjob(std::shared_ptr<void> arg, std::function<void (std::shar
 void threadpool::shutdown(){
     mutex_.lock();
     if (m_stop) {
-        std::cout << "has shutdown" << std::endl;
+//        std::cout << "has shutdown" << std::endl;
+        LogFile::writeInfo("has shutdown\n");
     }
     for (int i = 0; i < thread_size; i++) {
         if (pthread_join(threads[i], NULL) != 0) {  // 一个个回收线程资源
-            std::cout << "pthread_join error" <<std::endl;
+            LogFile::writeInfo("pthread_join error\n");
+//            std::cout << "pthread_join error" <<std::endl;
         }
     }
     m_stop = true;

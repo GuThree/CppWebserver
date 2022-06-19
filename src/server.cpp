@@ -6,18 +6,16 @@
 #include "../include/epoll.h"
 #include "../include/http_parse.h"
 #include "../include/threadpool.h"
+#include "../include/logger.h"
+#include "../include/utility.h"
 
 
 TimerManager HttpServer::timerManager;
 
-int setNonblocking(int fd) {                    //将文件描述符设置为不可阻塞的状态
-    int old_option = fcntl(fd, F_GETFL);        //获得原有的描述符状态标记
-    int new_option = old_option | O_NONBLOCK;   //设置非阻塞操作位，这样子客户端接上套接字时才能进行写操作。
-    fcntl(fd, F_SETFL, new_option);             //把新的状态标记设置回去
-    return old_option;                          //返回原有的状态标记
-}
+
 
 void HttpServer::run(int thread_num, int max_queue_size) {
+
     threadpool threadPool(thread_num, max_queue_size);                       //创建线程池
     int epoll_fd = Epoll::init(1024);                              //初始化epoll，epoll_fd全局唯一
 
@@ -44,7 +42,7 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
 
     HttpRequestParser::HTTP_CODE retcode = HttpRequestParser::parse_content(httpdata_worker->clientSocket_->m_sockfd, *httpdata_worker->request_);
 
-    std::cout << httpdata_worker->clientSocket_->m_sockfd << "clientFD: HTTP_CODE: " << retcode << std::endl;
+//    std::cout << httpdata_worker->clientSocket_->m_sockfd << "clientFD: HTTP_CODE: " << retcode << std::endl;
 
     if (retcode == HttpRequestParser::NO_REQUEST) {
             return;
@@ -82,12 +80,14 @@ void HttpServer::handleConnection(ServerSocket &serverSocket){
     std::shared_ptr<ClientSocket> tempClient(new ClientSocket); // 创建一个指定特定客户端的套接字
 
     if (serverSocket.Accept()) {  // 当我们正式创建一个链接
-        std::cout << serverSocket.m_connfd << " clientfd accepted.\n";
+        LogFile::writeInfo("one client fd accepted\n");
+//        std::cout << serverSocket.m_connfd << " clientfd accepted.\n";
 
         tempClient->m_sockfd = serverSocket.m_connfd;
         int ret = setNonblocking(tempClient->m_sockfd);
         if (ret < 0) {
-            std::cout << "setNonblocking error" << std::endl;
+            LogFile::writeInfo("setNonblocking error\n");
+//            std::cout << "setNonblocking error" << std::endl;
             tempClient->Close();
             return;
         }
@@ -107,7 +107,8 @@ void HttpServer::handleConnection(ServerSocket &serverSocket){
         // 为这个Http链接添加计时器
         timerManager.addTimer(sharedHttpData, TimerManager::DEFAULT_TIME_OUT);
     } else {
-        std::cout << "Client connection error\n";
+        LogFile::writeInfo("Client connection error\n");
+//        std::cout << "Client connection error\n";
     }
 
 }

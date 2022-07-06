@@ -10,6 +10,7 @@
 void signal_handler(int sig){
     LogFile::writeInfo("The server is down\n");
     LogFile::closeFile();
+
 }
 
 int setNonblocking(int fd) {                    //将文件描述符设置为不可阻塞的状态

@@ -61,13 +61,8 @@ void threadpool::shutdown(){
 //        std::cout << "has shutdown" << std::endl;
         LogFile::writeInfo("has shutdown\n");
     }
-    for (int i = 0; i < thread_size; i++) {
-        if (pthread_join(threads[i], NULL) != 0) {  // 一个个回收线程资源
-            LogFile::writeInfo("pthread_join error\n");
-//            std::cout << "pthread_join error" <<std::endl;
-        }
-    }
     m_stop = true;
+    condition_.signal_all();
     mutex_.unlock();
 }
 
